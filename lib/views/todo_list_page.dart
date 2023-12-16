@@ -159,7 +159,7 @@ class _TodoListPageState extends State<TodoListPage> {
   Widget statusText(TodoModel todo) => Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Insets.spacingTiny),
-            color: Constants.greenLight,
+            color: todo.completed ??false ?Constants.greenLight:Constants.orange,
             border: Border.all(color: Constants.grey_20, width: 1.3)),
         padding: const EdgeInsets.all(6),
         child: Txt.tinyTxt(
