@@ -1,6 +1,4 @@
-# todo
-
-Todo App
+# Todo App
 
 ## Install guide 
 clone the repo 
