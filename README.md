@@ -11,4 +11,4 @@ run flutter run
 
 ## Screenshot
 
-![Todo app](./awaccc.png.png)
+![Todo app](./awaccc.png)
