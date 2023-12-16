@@ -25,7 +25,6 @@ class Api {
       /// here u can catch exceptions
       /// and log them for network failures u can call your crash analysis to log
     }
-    return null;
   }
 
   static Future<dynamic> addOrUpdateTask({var req, bool isEdit = false}) async {
@@ -47,7 +46,6 @@ class Api {
       /// here u can catch exceptions
       /// and log them for network failures u can call your crash analysis to log
     }
-    return null;
   }
 
   static Future<dynamic> deleteTask({
@@ -63,7 +61,6 @@ class Api {
       /// here u can catch exceptions
       /// and log them for network failures u can call your crash analysis to log
     }
-    return null;
   }
 
   static dynamic getUrl() {
