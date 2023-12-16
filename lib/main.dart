@@ -6,10 +6,10 @@ import 'package:todo/constants.dart';
 import 'package:todo/controllers/baseController.dart';
 import 'package:todo/views/todo_list_page.dart';
 
-void main()async {
+void main() async {
   await GetStorage.init();
-  Get.put( BaseController());
-  Get.put( TodoController());
+  Get.put(BaseController());
+  Get.put(TodoController());
   runApp(const MyApp());
 }
 
@@ -24,8 +24,7 @@ class MyApp extends StatelessWidget {
           colorScheme:
               ColorScheme.fromSwatch().copyWith(secondary: Constants.orange)),
       debugShowCheckedModeBanner: false,
-      home:  const TodoListPage(),
+      home: const TodoListPage(),
     );
   }
 }
-

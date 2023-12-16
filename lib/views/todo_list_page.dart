@@ -25,6 +25,7 @@ class _TodoListPageState extends State<TodoListPage> {
   TodoController todoController =
       Get.find(); // Rather Controller controller = Controller();
   final FocusNode _focusSearch = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -55,9 +56,7 @@ class _TodoListPageState extends State<TodoListPage> {
                 fontWeight: FontWeight.bold,
                 fontFamily: Constants.fontFamily),
             focusNode: _focusSearch,
-            onChange: (text){
-
-            },
+            onChange: (text) {},
             lableTxt: "Search Task",
             contentPadding: const EdgeInsets.fromLTRB(15, 18, 35, 18),
             controller: todoController.searchController,
@@ -138,7 +137,10 @@ class _TodoListPageState extends State<TodoListPage> {
     return GestureDetector(
       onTap: () async {
         var rs = await todoController.deleteTask(id: todo.id);
-        if (rs) todoController.todos.remove(todo);
+        if (rs) {
+          todoController.todos.remove(todo);
+          todoController.filteredTodos.remove(todo);
+        }
       },
       child: Container(
         decoration: BoxDecoration(
@@ -159,7 +161,9 @@ class _TodoListPageState extends State<TodoListPage> {
   Widget statusText(TodoModel todo) => Container(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(Insets.spacingTiny),
-            color: todo.completed ??false ?Constants.greenLight:Constants.orange,
+            color: todo.completed ?? false
+                ? Constants.greenLight
+                : Constants.orange,
             border: Border.all(color: Constants.grey_20, width: 1.3)),
         padding: const EdgeInsets.all(6),
         child: Txt.tinyTxt(
@@ -170,6 +174,6 @@ class _TodoListPageState extends State<TodoListPage> {
   Future<dynamic> goToAddOrUpdateTask({var todo}) async {
     await Get.to(() => AddOrEditTodo(todo: todo),
         transition: Transition.rightToLeft,
-        duration: const Duration(milliseconds: 100));
+        duration: const Duration(milliseconds: 300));
   }
 }

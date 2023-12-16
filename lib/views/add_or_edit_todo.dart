@@ -27,6 +27,7 @@ class _AddOrEditTodoState extends State<AddOrEditTodo> {
   final FocusNode _focusTitle = FocusNode();
   var isCompleted = false;
   final TodoController todoController = Get.find();
+
   @override
   void initState() {
     super.initState();
@@ -46,7 +47,6 @@ class _AddOrEditTodoState extends State<AddOrEditTodo> {
     _focusTitle.dispose();
     titleController.dispose();
     todoController.dispose();
-
   }
 
   @override
@@ -105,7 +105,7 @@ class _AddOrEditTodoState extends State<AddOrEditTodo> {
                 padding: const EdgeInsets.symmetric(
                     horizontal: Insets.spacingLarge + 8),
                 child: CustomBtn(
-                    onPressed: ()async {
+                    onPressed: () async {
                       await addOrUpdateTask();
                     },
                     color: Constants.orange,
@@ -118,21 +118,21 @@ class _AddOrEditTodoState extends State<AddOrEditTodo> {
           ),
         ));
   }
-  Future<dynamic> addOrUpdateTask()async{
-    if(_formKey.currentState!.validate()){
+
+  Future<dynamic> addOrUpdateTask() async {
+    if (_formKey.currentState!.validate()) {
       var req = {
-        if(widget.todo !=null) 'id': widget.todo?.id,
+        if (widget.todo != null) 'id': widget.todo?.id,
         'title': titleController.text,
         'completed': isCompleted
       };
-      var rs = await todoController.addOrUpdateTask(req: req,isEdit: widget.todo !=null);
-      if(rs){
+      var rs = await todoController.addOrUpdateTask(
+          req: req, isEdit: widget.todo != null);
+      if (rs) {
         Get.back();
-      }
-      else{
+      } else {
         _focusTitle.unfocus();
       }
     }
-
   }
 }

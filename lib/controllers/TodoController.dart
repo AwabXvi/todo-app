@@ -23,13 +23,6 @@ class TodoController extends GetxController {
     });
   }
 
-
-  @override
-  void dispose() {
-    super.dispose();
-    searchController.dispose();
-  }
-
   Future<void> fetchTasks() async {
     if(await checkConnectivity()){
       final response = await Api.getTaskList();
@@ -83,11 +76,14 @@ class TodoController extends GetxController {
             final index = todos.indexWhere((t) => t.id == data['id']);
             if (index != -1) {
               todos[index] = TodoModel.fromJson(data);
+              filteredTodos.clear();
+              filteredTodos.assignAll(todos);
             }
           }
           else{
             todos.add(TodoModel.fromJson(data));
-
+            filteredTodos.clear();
+            filteredTodos.assignAll(todos);
           }
           result = true;
         },

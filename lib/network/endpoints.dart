@@ -1,4 +1,3 @@
-class EndPoints{
-static const String todos = '/todos';
+class EndPoints {
+  static const String todos = '/todos';
 }
-

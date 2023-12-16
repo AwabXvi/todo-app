@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-class Constants{
+class Constants {
   static String domainName = "https://jsonplaceholder.typicode.com";
   static const String fontFamily = 'mainFont';
   static final Color orange = HexColor('#F79122');

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../constants.dart';
@@ -40,45 +39,46 @@ class InputWidget extends StatelessWidget {
   final double? raduis;
   final TextAlign? textAlign;
   final List<TextInputFormatter>? inputFormat;
-  //
-  const InputWidget({
-    Key? key,
 
-    this.inputFormat,
-    this.lableFontSize,
-    this.focusNode,
-    this.emptyMsg,
-    this.hint,
-    this.obscureText,
-    this.lableTxt,
-    this.controller,
-    this.maxLines,
-    this.maxLength,
-    this.onChange,
-    this.autovalidateMode,
-    this.validator,
-    this.margin,
-    this.textInputType,
-    this.changeValueObScureText,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.height,
-    this.contentPadding,
-    this.textStyle,
-    this.onFieldSubmitted,
-    this.color,
-    this.fontSize,
-    this.onTap,
-    this.autofocus,
-    this.isShowBuildCounter,
-    this.prefixText,
-    this.borderWidth,
-    this.filled,
-    this.fillColor,
-    this.hintFontSize,
-    this.raduis,
-    this.textAlign
-  }) : super(key: key);
+  //
+  const InputWidget(
+      {Key? key,
+      this.inputFormat,
+      this.lableFontSize,
+      this.focusNode,
+      this.emptyMsg,
+      this.hint,
+      this.obscureText,
+      this.lableTxt,
+      this.controller,
+      this.maxLines,
+      this.maxLength,
+      this.onChange,
+      this.autovalidateMode,
+      this.validator,
+      this.margin,
+      this.textInputType,
+      this.changeValueObScureText,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.height,
+      this.contentPadding,
+      this.textStyle,
+      this.onFieldSubmitted,
+      this.color,
+      this.fontSize,
+      this.onTap,
+      this.autofocus,
+      this.isShowBuildCounter,
+      this.prefixText,
+      this.borderWidth,
+      this.filled,
+      this.fillColor,
+      this.hintFontSize,
+      this.raduis,
+      this.textAlign})
+      : super(key: key);
+
   //
   @override
   Widget build(BuildContext context) {
@@ -88,36 +88,27 @@ class InputWidget extends StatelessWidget {
       focusNode: focusNode,
       autofocus: autofocus ?? false,
       maxLength: maxLength ?? 80,
-
       maxLines: maxLines ?? 1,
       keyboardType: textInputType,
       cursorColor: Constants.orange,
-      textAlign: textAlign??TextAlign.center,
-      textDirection: TextDirection.rtl,
+      textAlign: textAlign ?? TextAlign.start,
+      textDirection: TextDirection.ltr,
       inputFormatters: inputFormat,
       textInputAction: TextInputAction.done,
-
-
       autovalidateMode: autovalidateMode ?? AutovalidateMode.onUserInteraction,
       validator: validator,
-
       onChanged: onChange,
       style: textStyle,
       onTap: onTap,
-      onFieldSubmitted: (value) {
-
-      },
-
+      onFieldSubmitted: (value) {},
       cursorHeight: 25.0,
-
       decoration: InputDecoration(
         labelText: lableTxt,
         counterText: '',
         labelStyle: TextStyle(
-          fontSize: 14.0,
-          fontFamily: Constants.fontFamily,
-          color: focusNode!.hasFocus?Constants.orange:Constants.txtGrey
-        ),
+            fontSize: 14.0,
+            fontFamily: Constants.fontFamily,
+            color: focusNode!.hasFocus ? Constants.orange : Constants.txtGrey),
         isDense: true,
         prefixText: prefixText ?? '',
         prefixStyle: const TextStyle(
@@ -128,34 +119,29 @@ class InputWidget extends StatelessWidget {
         hintText: hint,
 
         hintStyle: TextStyle(
-            fontSize: hintFontSize??16,
+            fontSize: hintFontSize ?? 16,
             color: Colors.black26,
             fontFamily: Constants.fontFamily //filled
             ),
         // error
-        errorStyle:
-        const TextStyle(fontSize: 12,
-            fontFamily: Constants.fontFamily //filled
+        errorStyle: const TextStyle(
+            fontSize: 12, fontFamily: Constants.fontFamily //filled
 
-        ),
-        prefixIconConstraints: const BoxConstraints(
-          maxWidth: 20,
-          maxHeight: 20
-        ),
-        suffixIconConstraints:const BoxConstraints(
-            maxWidth: 20,
-            maxHeight: 20
-        ) ,
+            ),
+        prefixIconConstraints:
+            const BoxConstraints(maxWidth: 20, maxHeight: 20),
+        suffixIconConstraints:
+            const BoxConstraints(maxWidth: 20, maxHeight: 20),
         // outlineBorder
-        errorBorder:  OutlineInputBorder(
-          borderRadius: BorderRadius.circular(raduis??5.0),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(raduis ?? 5.0),
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1,
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(raduis??5.0),
+          borderRadius: BorderRadius.circular(raduis ?? 5.0),
           borderSide: const BorderSide(
             color: Colors.red,
             width: 1,
@@ -167,7 +153,7 @@ class InputWidget extends StatelessWidget {
         fillColor: fillColor,
         //
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(raduis??5.0),
+          borderRadius: BorderRadius.circular(raduis ?? 5.0),
           borderSide: BorderSide(
             color: Constants.orange,
             width: borderWidth ?? 1.0,
@@ -177,11 +163,9 @@ class InputWidget extends StatelessWidget {
         prefixIcon: prefixIcon,
         //
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(raduis??5.0),
-          borderSide: BorderSide(
-            color:Constants.grey_20,
-              width: borderWidth ?? 1.0
-          ),
+          borderRadius: BorderRadius.circular(raduis ?? 5.0),
+          borderSide:
+              BorderSide(color: Constants.grey_20, width: borderWidth ?? 1.0),
         ),
       ),
     );
