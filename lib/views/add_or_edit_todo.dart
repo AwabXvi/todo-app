@@ -58,31 +58,29 @@ class _AddOrEditTodoState extends State<AddOrEditTodo> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Form(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 10),
-                  child: InputWidget(
-                    textStyle: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 0.045,
-                        color: Constants.blackTxtColor,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: Constants.fontFamily),
-                    focusNode: _focusTitle,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "Please enter task title";
-                      } else if (value.length < 2) {
-                        return "Task title is too short";
-                      }
-                      return null;
-                    },
-                    lableTxt: "Task Title",
-                    contentPadding: const EdgeInsets.fromLTRB(5, 18, 35, 18),
-                    hint: 'Enter Task title',
-                    controller: titleController,
-                    textInputType: TextInputType.text,
-                  ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 30.0, vertical: 10),
+                child: InputWidget(
+                  textStyle: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.045,
+                      color: Constants.blackTxtColor,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: Constants.fontFamily),
+                  focusNode: _focusTitle,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please enter task title";
+                    } else if (value.length < 2) {
+                      return "Task title is too short";
+                    }
+                    return null;
+                  },
+                  lableTxt: "Task Title",
+                  contentPadding: const EdgeInsets.fromLTRB(5, 18, 35, 18),
+                  hint: 'Enter Task title',
+                  controller: titleController,
+                  textInputType: TextInputType.text,
                 ),
               ),
               Row(
